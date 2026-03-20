@@ -1,0 +1,4 @@
+This file was created as part of the demo-001 governance loop.
+spec_id: demo-001
+acceptance: Create docs/demo.txt
+result: PASS

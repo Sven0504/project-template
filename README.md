@@ -90,3 +90,42 @@ project-template/
 - 本 repo 可被獨立理解與使用，不依賴任何特定對話或口頭說明
 - 所有治理邊界均以本 README 及 `project_rules.md` 為準
 - 若有疑問，請查閱 `docs/BOOTSTRAP_CHECKLIST.md` 的完成狀態
+
+---
+
+## 治理容器與 Demo 閉環
+
+### 治理容器（Governance Containers）
+
+以下目錄為治理必要容器，每個新專案均須存在：
+
+| 容器 | 說明 |
+|------|------|
+| `specs/` | 存放所有 Spec 文件（每個功能/變更對應一個 spec） |
+| `tests/` | 存放所有測試文件（與 spec 的 Acceptance 對應） |
+| `docs/adr/` | 存放 Architecture Decision Records |
+
+> ✅ 三個容器均以 `.gitkeep` 確保目錄可被追蹤。
+
+### Spec 範本（template/spec_template.md）
+
+`template/spec_template.md` 是新功能開發前的規格起點。
+
+每個新 spec 必須包含：
+- `id`：唯一識別（e.g. `feature-auth-v1`）
+- `## Objective`：要解決的問題（不可模糊）
+- `## Scope`：允許修改的路徑
+- `## Non-Scope`：禁止影響的範圍
+- `## Acceptance`：可驗證的驗收條件
+- `## Constraints`：技術/業務限制
+
+### Demo 閉環示例（specs/demo-001.md）
+
+`specs/demo-001.md` + `docs/demo-trace.md` 是本 repo 內的最小治理閉環示例：
+
+1. **Spec**（`specs/demo-001.md`）— 定義 Objective / Scope / Acceptance
+2. **執行**（`docs/demo.txt`）— 由 spec Acceptance 導出的實際產出
+3. **Trace**（`docs/demo-trace.md`）— 包含 spec_id / command / matched_acceptance / result / evidence_reference 完整鏈條
+
+此閉環示例說明「Spec → Execution → Trace → Evidence」四段必須完整才算一個有效的治理週期。
+
