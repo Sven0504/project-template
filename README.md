@@ -129,3 +129,18 @@ project-template/
 
 此閉環示例說明「Spec → Execution → Trace → Evidence」四段必須完整才算一個有效的治理週期。
 
+---
+
+## Second Governance Loop
+
+第二次治理閉環驗證已完成，確認 Spec → Execution → Trace → Evidence 鏈條可重複運作，非僅對 demo-001 有效。
+
+| 欄位 | 值 |
+|------|-----|
+| **Spec** | `specs/governance-002.md` |
+| **Objective** | Validate a second non-production governance loop by adding a governance consistency note |
+| **Deliverables** | `docs/governance-consistency.md`、`README.md`（本節） |
+| **Trace** | `docs/governance-002-trace.md` |
+| **Result** | PASS |
+
+> 詳細 Acceptance → Evidence 對應請參閱 [`docs/governance-002-trace.md`](docs/governance-002-trace.md)。
