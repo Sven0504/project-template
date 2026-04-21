@@ -3,20 +3,20 @@ set -euo pipefail
 
 echo "[CHECK] Governance CI check starting..."
 
-# 抓這次 PR 的變更內容
-git diff origin/main...HEAD > pr.diff
+# 取得 PR 描述
+PR_BODY=$(jq -r .pull_request.body "$GITHUB_EVENT_PATH")
 
-echo "[INFO] Checking PR content..."
+echo "[INFO] Checking PR description..."
 
-# 檢查 PR 是否有 spec
-if ! grep -qi "spec" pr.diff; then
-  echo "[FAIL] No spec reference found in PR changes"
+# 檢查 spec
+if ! echo "$PR_BODY" | grep -qi "spec"; then
+  echo "[FAIL] No spec found in PR description"
   exit 1
 fi
 
-# 檢查 PR 是否有 evidence
-if ! grep -qi "evidence" pr.diff; then
-  echo "[FAIL] No evidence reference found in PR changes"
+# 檢查 evidence
+if ! echo "$PR_BODY" | grep -qi "evidence"; then
+  echo "[FAIL] No evidence found in PR description"
   exit 1
 fi
 
