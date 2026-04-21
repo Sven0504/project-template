@@ -50,13 +50,13 @@ Final git status --short: (empty — clean working tree)
 | README 清楚說明 Governance Gate | ✅ PASS | README.md 新增 `## Governance Gate` 節含 Spec / Evidence 關鍵字 |
 | 所有修改均在允許路徑內 | ✅ PASS | .github/ scripts/ docs/ README.md — 無 src/ app/ components/ 變更 |
 | 最終 git status --short 為空 | ✅ PASS | 輸出空白（clean tree） |
-| Owner 完成 branch protection | ⏳ PENDING | 需 Owner 手動在 GitHub 設定 |
+| Owner 完成 branch protection | ✅ PASS | Owner 已於 2026-04-22 確認設定完成 |
 
 ---
 
 ## Result
 
-**PASS**（含一項需 Owner 手動操作：branch protection）
+**PASS — 全項通過（含 Owner branch protection 確認）**
 
 ---
 
