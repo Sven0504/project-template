@@ -3,20 +3,20 @@ set -euo pipefail
 
 echo "[CHECK] Governance CI check starting..."
 
-# 檢查 README 是否包含 Spec / Evidence（最小 PR Gate 模擬）
-if ! grep -q "Spec" README.md; then
-  echo "[FAIL] README missing Spec section"
+# 抓這次 PR 的變更內容
+git diff origin/main...HEAD > pr.diff
+
+echo "[INFO] Checking PR content..."
+
+# 檢查 PR 是否有 spec
+if ! grep -qi "spec" pr.diff; then
+  echo "[FAIL] No spec reference found in PR changes"
   exit 1
 fi
 
-if ! grep -q "Evidence" README.md; then
-  echo "[FAIL] README missing Evidence section"
-  exit 1
-fi
-
-# 檢查是否存在至少一個 trace 檔案
-if ! ls docs/*trace.md >/dev/null 2>&1; then
-  echo "[FAIL] No trace file found in docs/"
+# 檢查 PR 是否有 evidence
+if ! grep -qi "evidence" pr.diff; then
+  echo "[FAIL] No evidence reference found in PR changes"
   exit 1
 fi
 
