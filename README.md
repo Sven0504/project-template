@@ -144,3 +144,24 @@ project-template/
 | **Result** | PASS |
 
 > 詳細 Acceptance → Evidence 對應請參閱 [`docs/governance-002-trace.md`](docs/governance-002-trace.md)。
+
+---
+
+## Governance Gate
+
+All changes must pass:
+
+1. Pull Request with Spec / Acceptance / Evidence
+2. CI check (`scripts/ci-governance-check.sh`)
+3. Trace file present in `docs/`
+
+Direct commits to `main` are not allowed.
+
+### Branch Protection（需 Owner 手動設定）
+
+| 設定項目 | 要求 |
+|----------|------|
+| Protect matching branches | `main` |
+| Require a pull request before merging | ✅ 啟用 |
+| Require status checks to pass | ✅ `governance-ci` |
+| Do not allow bypassing the above settings | ✅ 啟用 |
