@@ -44,7 +44,7 @@ if [[ -z "$(echo "$SPEC_ID" | tr -d '[:space:]')" ]]; then
 fi
 
 # 擋 placeholder
-if echo "$SPEC_ID" | grep -qiE "replace|tbd|example|na"; then
+if echo "$SPEC_ID" | grep -qiE "^(replace|tbd|example|na)$"; then
   echo "[FAIL] spec_id is placeholder: $SPEC_ID"
   exit 1
 fi
